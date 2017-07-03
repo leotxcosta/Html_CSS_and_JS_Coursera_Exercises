@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Dating Website</title>
+        <style>
+            fieldset { background-color: lightyellow; border:10px solid yellow; margin-bottom:10px; width: 720px }
+            label { display: inline-block; }
+            textarea { width:360px; height:50px }
+            .labelTd { width: 180px; text-align: right; vertical-align: text-top; } 
+            .indicatorMin { background-color: darkred; color: white; text-align: center; width: 60px}
+            .indicatorMax { background-color: darkmagenta; color: white; text-align: center; width: 60px}
+            .checkBoxTd { width: auto }
+        </style>
+    </head>
+    <body>
+        <h1>Please Enter Your Details For Our Dating Website!</h1>
+
+        <form action="https://ihome.ust.hk/~rossiter/cgi-bin/show_everything.php" method="POST" enctype="multipart/form-data">
+            <fieldset>                
+                <legend>Your Face</legend>
+                <table>
+                    <tr>
+                        <td class="labelTd"><label for="avatar">Your image:</label></td>
+                        <td><input type="file" name="avatar" id="avatar" required></td>
+                    </tr>
+                    <tr>
+                        <td class="labelTd"><label for="preview">Image preview:</label></td>
+                        <td><img id="preview" name="preview"></td>
+                    </tr>
+                </table>
+            </fieldset>
+            
+            <fieldset>
+                <legend>Your General Details</legend>
+                <table>
+                    <tr>
+                        <td class="labelTd"><label for="name">Name:</label></td>
+                        <td><input type="text" id="name" name="name" required></td>
+                    </tr> 
+                    <tr>
+                        <td class="labelTd"><label for="gender">Gender:</label></td>
+                        <td>
+                            <input type="radio" id="genderMale" name="gender" required> Male
+                            <input type="radio" id="genderMale" name="gender" required> Female
+                        </td>
+                    </tr>
+                    <tr>
+                        <td class="labelTd"><label for="age">Age:</label></td>
+                        <td><input type="number" min="0" id="age" name="age" required></td>
+                    </tr>
+                    <tr>
+                        <td class="labelTd"><label for="dateOfBirth">Date of birth:</label></td>
+                        <td><input type="date" id="dateOfBirth" name="dateOfBirth"></td>
+                    </tr>
+                    <tr>
+                        <td class="labelTd"><label for="color">Favorite color:</label></td>
+                        <td><input type="color" id="favoriteColor" name="favoriteColor"></td>
+                    </tr>
+                    <tr>
+                        <td class="labelTd"><label for="country">Which country:</label></td>
+                        <td>
+                            <select name="country" id="country">
+                                <option value="br">Brazil</option>
+                                <option value="us">United States</option>
+                                <option value="uk">United Kingdom</option>
+                                <option value="it">Italy</option>
+                            </select>
+                        </td>
+                    </tr> 
+                </table>         
+            </fieldset>
+            
+            <fieldset>
+                <legend>Your Indicators</legend>
+                <table>
+                    <tr>
+                        <td class="labelTd"><label for="height">Height:</label></td>
+                        <td class="indicatorMin">Short</td>
+                        <td><input type="range" id="height" name="height" min="0" max="100"></td>
+                        <td class="indicatorMax">Tall</td>
+                    </tr>
+                    <tr>
+                        <td class="labelTd"><label for="salary">Salary:</label></td>
+                        <td class="indicatorMin">Poor</td>
+                        <td><input type="range" id="salary" name="salary" min="0" max="100"></td>
+                        <td class="indicatorMax">Rich</td>
+                    </tr>
+                </table>
+            </fieldset>
+
+            <fieldset>
+                <legend>Your Contact Information</legend>
+                <table>
+                    <tr>
+                        <td class="labelTd"><label for="email">E-mail:</label></td>
+                        <td><input type="email" id="email" name="email" required></td>
+                    </tr>
+                    <tr>
+                        <td class="labelTd"><label for="mobile">Mobile:</label></td>
+                        <td><input type="tel" id="mobile" name="mobile"></td>
+                    </tr>
+                    <tr>
+                        <td class="labelTd"><label for="address">Address:</label></td>
+                        <td><textarea id="address" name="address"></textarea></td>
+                    </tr>
+                    <tr>
+                        <td class="labelTd"><label for="methodContact">Method to contact you:</label></td>
+                        <td class="checkBoxTd">
+                            <input type="checkbox" id="methodEmail" name="methodContact">E-mail
+                            <input type="checkbox" id="methodWhatsapp" name="methodContact">Whatsapp
+                            <input type="checkbox" id="methodChat" name="methodContact">In-app chat
+                        </td>
+                    </tr>
+                </table>
+            </fieldset>
+            
+            <input type="submit" id="submit" value="Submit">
+        </form> 
+    </body>
+</html>
