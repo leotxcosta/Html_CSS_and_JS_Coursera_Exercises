@@ -1,0 +1,56 @@
+<html>
+    <head>
+        <script>
+            var colors = ["blue", "cyan", "gold", "gray", "green", "magenta", "orange", "red", "white", "yellow"];
+            
+            var checkGuessCount = 0
+            function do_game()
+            {
+                var target_index = Math.floor(Math.random() * colors.length);
+                var targetColor = colors[target_index];
+                alert(targetColor);
+                var wasColorGuessed = false
+
+                while(!wasColorGuessed)
+                {
+                    var guess_input = prompt("I am thinking of one of these colors:\n\n" + colors.join(", ") + "\n\nWhat color am I thinking of?");
+                    wasColorGuessed = check_guess(guess_input, targetColor);
+                }
+            }
+
+            function check_guess(guess, targetColor)
+            {
+                checkGuessCount++;
+
+                var idxGuess = colors.indexOf(guess.toLowerCase());
+                if(idxGuess < 0)
+                {
+                    alert("Sorry, I don't recognize your color.\nPlease try again.");
+                    return false;
+                }   
+                
+                if(guess > targetColor)
+                {
+                    alert("Sorry, your guess is not correct!\nHint: your color is alphabetically higher than mine.\nPlease try again.");
+                    return false;
+                }
+                
+                if(guess < targetColor)
+                {
+                    alert("Sorry, your guess is not correct!\nHint: your color is alphabetically lower than mine.\nPlease try again.");
+                    return false;
+                }
+                
+                alert("Congratulations! You have guessed the color!\nIt took you " + checkGuessCount + 
+                      " guesses to finish the game!\nYou can see the color in the background.");
+                
+                myBody = document.getElementsByTagName("body")[0];
+                myBody.style.background = targetColor;
+
+                return true;    
+            }
+        </script>
+    </head>
+    <body onload="do_game()">
+    </body>
+</html>
